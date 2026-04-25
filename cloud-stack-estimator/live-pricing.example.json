@@ -1,0 +1,50 @@
+{
+  "aws": {
+    "rates": {
+      "mediaMinute": 0.0027,
+      "vcpuHour": 0.042,
+      "postgresStorageGbMonth": 0.118,
+      "postgresBase": 710,
+      "redisGbHour": 0.022,
+      "objectGbMonth": 0.025,
+      "egressGb": 0.084,
+      "monitoring": {
+        "native": 390,
+        "datadog": 2920,
+        "grafana": 1210
+      }
+    }
+  },
+  "azure": {
+    "rates": {
+      "mediaMinute": 0.003,
+      "vcpuHour": 0.044,
+      "postgresStorageGbMonth": 0.124,
+      "postgresBase": 730,
+      "redisGbHour": 0.024,
+      "objectGbMonth": 0.023,
+      "egressGb": 0.088,
+      "monitoring": {
+        "native": 430,
+        "datadog": 2970,
+        "grafana": 1260
+      }
+    }
+  },
+  "gcp": {
+    "rates": {
+      "mediaMinute": 0.0025,
+      "vcpuHour": 0.04,
+      "postgresStorageGbMonth": 0.119,
+      "postgresBase": 705,
+      "redisGbHour": 0.021,
+      "objectGbMonth": 0.022,
+      "egressGb": 0.08,
+      "monitoring": {
+        "native": 365,
+        "datadog": 2875,
+        "grafana": 1190
+      }
+    }
+  }
+}

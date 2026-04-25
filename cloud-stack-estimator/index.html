@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice Agent Infra Cost Estimator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Voice Agent Infra Cost Estimator</h1>
+        <p>
+          Planning-grade monthly infrastructure estimate for a premium voice-agent
+          SaaS stack across AWS, Azure, and GCP.
+        </p>
+      </header>
+
+      <section class="panel">
+        <h2>Workload Inputs</h2>
+        <div class="grid">
+          <label>
+            Monthly sessions
+            <input id="sessions" type="number" min="0" step="1" value="250000" />
+          </label>
+          <label>
+            Avg minutes / session
+            <input id="minutesPerSession" type="number" min="0" step="0.1" value="6" />
+          </label>
+          <label>
+            Peak concurrent sessions
+            <input id="peakConcurrency" type="number" min="0" step="1" value="300" />
+          </label>
+          <label>
+            App CPU cores (avg)
+            <input id="computeCores" type="number" min="0" step="0.1" value="24" />
+          </label>
+          <label>
+            PostgreSQL storage (GB)
+            <input id="dbStorageGb" type="number" min="0" step="1" value="600" />
+          </label>
+          <label>
+            Redis memory (GB)
+            <input id="redisGb" type="number" min="0" step="1" value="60" />
+          </label>
+          <label>
+            Object storage (TB)
+            <input id="objectTb" type="number" min="0" step="0.1" value="12" />
+          </label>
+          <label>
+            Egress (TB)
+            <input id="egressTb" type="number" min="0" step="0.1" value="8" />
+          </label>
+          <label>
+            Monitoring mode
+            <select id="monitoringMode">
+              <option value="native">Native cloud monitoring</option>
+              <option value="datadog">Datadog</option>
+              <option value="grafana">Grafana stack</option>
+            </select>
+          </label>
+          <label class="toggle-wrap">
+            <input id="useLivePricing" type="checkbox" />
+            Use live pricing JSON
+          </label>
+          <label>
+            Live pricing JSON URL
+            <input id="livePricingUrl" type="url" value="/live-pricing.example.json" />
+          </label>
+          <label class="toggle-wrap">
+            <input id="liveFx" type="checkbox" />
+            Fetch live USD→INR FX rate
+          </label>
+          <button id="calculateBtn" class="btn">Recalculate</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Monthly Cost Comparison</h2>
+        <p class="hint" id="pricingMeta"></p>
+        <p class="hint" id="fxMeta"></p>
+        <div class="cards" id="resultCards"></div>
+        <p class="recommend" id="recommendation"></p>
+      </section>
+
+      <section class="panel">
+        <h2>Assumptions & Disclaimer</h2>
+        <ul>
+          <li>Planning-grade estimate, not a formal billing quote.</li>
+          <li>
+            Excludes AI model cost (STT/TTS/LLM) and telecom/SIP provider charges.
+          </li>
+          <li>
+            Live pricing JSON requires a compatible schema and CORS-accessible URL.
+          </li>
+          <li>
+            Tune price constants in <code>app.js</code> to align with region,
+            discounts, and negotiated contracts.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
