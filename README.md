@@ -7,10 +7,10 @@ This repo contains a lightweight static web app to compare estimated monthly inf
 ```bash
 git clone https://github.com/piyushtamaskar21/cloudcost.git
 cd cloudcost/cloud-stack-estimator
-python3 -m http.server 8080
+python3 -m http.server 8434
 ```
 
-Then open: <http://localhost:8080>
+Then open: <http://localhost:8434>
 
 ## Project layout
 
